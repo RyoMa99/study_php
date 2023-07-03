@@ -13,10 +13,21 @@
  */
 
 $in = [
-  'id' => 1,
-  'code' => 'S1001',
-  'name' => '山田',
-  'pref' => 27,
+  [
+    'id' => 1,
+    'code' => 'S1001',
+    'name' => '山田',
+  ],
+  [
+    'id' => 2,
+    'code' => 'S1003',
+    'name' => '鈴木',
+  ],
+  [
+    'id' => 3,
+    'code' => 'S1002',
+    'name' => '佐藤',
+  ],
 ];
 
-var_dump(array_keys($in));
+var_dump(array_column($in, 'name', 'code'));
