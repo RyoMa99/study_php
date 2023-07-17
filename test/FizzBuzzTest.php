@@ -15,7 +15,7 @@ class FizzBuzzTest extends TestCase
     $fizzBuzz = new NumberConverter([
       new CyclicNumberRule(3, "Fizz"),
       new CyclicNumberRule(5, "Buzz"),
-      new PassThroughRule,
+      new PassThroughRule([3, 5]),
     ]);
 
     $this->assertEquals("1", $fizzBuzz->convert(1));
