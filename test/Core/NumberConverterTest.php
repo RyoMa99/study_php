@@ -19,4 +19,16 @@ class NumberConverterTest extends TestCase
     $this->assertEquals("FizzBuzz", $fizzBuzz->convert(15));
     $this->assertEquals("FizzBuzz", $fizzBuzz->convert(30));
   }
+
+  public function testConvertWithSingleRule()
+  {
+    $rule = $this->createMock(ReplaceRuleInterface::class);
+    $rule->expects($this->atLeastOnce())
+      ->method('replace')
+      ->with(1)
+      ->willReturn("Replaced");
+
+    $fizzBuzz = new NumberConverter([$rule]);
+    $this->assertEquals("Replaced", $fizzBuzz->convert(1));
+  }
 }
