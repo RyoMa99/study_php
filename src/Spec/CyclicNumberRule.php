@@ -14,6 +14,6 @@ class CyclicNumberRule implements ReplaceRuleInterface
 
   public function replace(int $n): string
   {
-    return "";
+    return $n % $this->base == 0 ? $this->replacement : "";
   }
 }
