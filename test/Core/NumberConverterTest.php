@@ -25,17 +25,17 @@ class NumberConverterTest extends TestCase
 
   public function testConvertWithFizzBuzzRule()
   {
-
     $fizzBuzz = new NumberConverter([
       $this->createMockRule(
         expectedNumber: 1,
         replacement: "Fizz",
       ),
       $this->createMockRule(
-        expectedNumber: 2,
+        expectedNumber: 1,
         replacement: "Buzz",
       ),
     ]);
+
     $this->assertEquals("FizzBuzz", $fizzBuzz->convert(1));
   }
 
