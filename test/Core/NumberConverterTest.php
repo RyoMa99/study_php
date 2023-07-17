@@ -44,6 +44,7 @@ class NumberConverterTest extends TestCase
     int $expectedNumber,
     string $replacement
   ): ReplaceRuleInterface {
+    /** @var ReplaceRuleInterface&\PHPUnit\Framework\MockObject\MockObject $rule */
     $rule = $this->getMockBuilder(ReplaceRuleInterface::class)->getMock();
     $rule->expects($this->atLeastOnce())
       ->method('replace')
