@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class NumberConverterTest extends TestCase
 {
-  public function testConvert()
+  public function testConvertWithEmptyRule()
   {
     $fizzBuzz = new NumberConverter([]);
     $this->assertEquals("", $fizzBuzz->convert(1));
