@@ -16,6 +16,6 @@ class NumberConverter
 
   public function convert(int $n): string
   {
-    return "";
+    return $this->rules[0]->replace($n);
   }
 }
