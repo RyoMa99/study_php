@@ -12,8 +12,13 @@ class CyclicNumberRule implements ReplaceRuleInterface
   ) {
   }
 
-  public function replace(int $n): string
+  public function apply(string $carry, int $n): string
   {
-    return $n % $this->base == 0 ? $this->replacement : "";
+    return $carry . $this->replacement;
+  }
+
+  public function match(string $carry, int $n): bool
+  {
+    return $n % $this->base == 0;
   }
 }
