@@ -6,19 +6,13 @@ use FizzBuzz\Core\ReplaceRuleInterface;
 
 class PassThroughRule implements ReplaceRuleInterface
 {
-  public function __construct(
-    private array $exceptionalNumbers
-  ) {
+  public function apply(string $carry, int $n): string
+  {
+    return (string)$n;
   }
 
-  public function replace(int $n): string
+  public function match(string $carry, int $n): bool
   {
-    foreach ($this->exceptionalNumbers as $exceptionalNumber) {
-      if ($n % $exceptionalNumber == 0) {
-        return "";
-      }
-    }
-
-    return (string)$n;
+    return $carry === "";
   }
 }
