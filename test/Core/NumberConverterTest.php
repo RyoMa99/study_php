@@ -14,7 +14,7 @@ class NumberConverterTest extends TestCase
 
   public function testConvertWithSingleRule()
   {
-    $rule = $this->createMock(ReplaceRuleInterface::class);
+    $rule = $this->getMockBuilder(ReplaceRuleInterface::class)->getMock();
     $rule->expects($this->atLeastOnce())
       ->method('replace')
       ->with(1)
