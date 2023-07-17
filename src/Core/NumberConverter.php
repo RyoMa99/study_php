@@ -13,4 +13,9 @@ class NumberConverter
     protected array $rules
   ) {
   }
+
+  public function convert(int $n): string
+  {
+    return "";
+  }
 }
