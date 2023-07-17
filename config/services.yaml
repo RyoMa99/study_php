@@ -1,30 +1,23 @@
 services:
-  # services直下がコンテナへの登録名
+  _defaults:
+    autowire: true
+  FizzBuzz\:
+    resource: '../src/*'
+
   FizzBuzz\App\FizzBuzzSequencePrinter:
-    # インスタンスがシステム内に一つしかない場合はクラス名をキー名にするのが慣習
-    # classで明示的に書いても、省略しても良い
-    # publicはオブジェクト構造のルート、コンテナ外から取得できるノードにつける
     public: true
-    # コンストラクタ引数
-    # 名前でも配列でもよい
-    arguments:
-      # @は、コンテナ内の別インスタンスにアクセスする際に用いる
-      $fizzBuzz: '@FizzBuzz\Core\NumberConverter'
-      $output: '@FizzBuzz\App\OutputInterface'
+
   FizzBuzz\Core\NumberConverter:
     arguments:
       $rules:
       - '@fizzbuzz.rule.fizz'
       - '@fizzbuzz.rule.buzz'
       - '@FizzBuzz\Spec\PassThroughRule'
-  # 同じクラスのインスタンスが複数できそうなときはクラス名でなく、ユニークな名前を用いるようにする
+
   fizzbuzz.rule.fizz:
     class: FizzBuzz\Spec\CyclicNumberRule
     arguments: [3, 'Fizz']
+
   fizzbuzz.rule.buzz:
     class: FizzBuzz\Spec\CyclicNumberRule
     arguments: [5, 'Buzz']
-  # ~は、内容の省略
-  FizzBuzz\Spec\PassThroughRule: ~
-  FizzBuzz\App\OutputInterface:
-    class: FizzBuzz\ConsoleOutput
