@@ -41,7 +41,7 @@
       // php
       "bmewburn.vscode-intelephense-client", // インテリセンス
       "junstyle.php-cs-fixer", // formatter
-      "shevaua.phpcs",
+      "swordev.phpstan", // 静的解析
       "formulahendry.code-runner", // code runner ctrl + alt + n でコードが実行できる
       "xdebug.php-debug", // debug
       "emallin.phpunit", // ユニットテスト
